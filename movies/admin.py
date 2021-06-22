@@ -45,7 +45,7 @@ class MovieAdmin(admin.ModelAdmin):
     """Фильмы"""
     list_display = ("title", "category", "url", "draft")
     list_filter = ("category", "year")
-    search_fields = ("title", "category__name")
+    search_fields = ("title", "category__name") 
     inlines = [MovieShotsInline, ReviewInline]
     save_on_top = True
     save_as = True

@@ -20,7 +20,7 @@ class MovieViewSet(viewsets.ReadOnlyModelViewSet):
     filter_backends = (DjangoFilterBackend,)
     filterset_class = MovieFilter
     pagination_class = PaginationMovies
-    permission_classes = (IsSenior,)
+    # permission_classes = (IsSenior,)
 
     def get_queryset(self):
         movies = Movie.objects.filter(draft=False).annotate(

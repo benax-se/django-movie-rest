@@ -12,4 +12,5 @@ class IsAdminUser(BasePermission):
 class IsSenior(BasePermission):
 
     def has_permission(self, request, view):
-        return bool(request.user and request.user.profile.position.name == "Senior")
+        return request.user.profile.position.name == "Senior" if not request.user.is_anonymous else False
+

@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-kc7qmnuwk(wk80i%u_##ff9b^+f*h(@527&9nk2xemqn1#2*e5'
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -228,8 +228,8 @@ SOCIAL_AUTH_VK_OAUTH2_KEY = SOCIAL_AUTH_VK_OAUTH2_KEY
 SOCIAL_AUTH_VK_OAUTH2_SECRET = SOCIAL_AUTH_VK_OAUTH2_SECRET
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.vk.VKOAuth2',
-    'rest_framework_social_oauth2.backends.DjangoOAuth2',
+    # 'social_core.backends.vk.VKOAuth2',
+    # 'rest_framework_social_oauth2.backends.DjangoOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -237,8 +237,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
-        'rest_framework_social_oauth2.authentication.SocialAuthentication',
+        # 'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        # 'rest_framework_social_oauth2.authentication.SocialAuthentication',
     ),
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
@@ -264,7 +264,7 @@ DJOSER = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': True,
